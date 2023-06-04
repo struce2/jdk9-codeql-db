@@ -18,8 +18,8 @@ jobs:
         run: apt update && apt install -y wget git gcc g++ make file unzip zip libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libcups2-dev libfreetype6-dev libasound2-dev libfontconfig1-dev openjdk-8-jdk
       - name: Clone jdk9 src
         run: git clone --depth=1 https://github.com/openjdk/jdk9u
-      - name: Configure
-        run: cd jdk9u && bash ./configure --disable-warnings-as-errors && cd -
+      - name: Configure && Make
+        run: cd jdk9u && bash configure --disable-warnings-as-errors && make images && cd -
       - name: Initialize CodeQL
         run: |
           wget https://github.com/github/codeql-cli-binaries/releases/download/v2.13.3/codeql-linux64.zip && 
