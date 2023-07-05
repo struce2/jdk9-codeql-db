@@ -10,7 +10,6 @@ env:
 jobs:
   build-db:
     runs-on: ubuntu-22.04
-    container: ubuntu:18.04
     permissions:
       security-events: write
     steps:
