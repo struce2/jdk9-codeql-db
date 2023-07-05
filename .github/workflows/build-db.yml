@@ -23,7 +23,7 @@ jobs:
       - name: Clone jdk9 src
         run: git clone --depth=1 https://github.com/openjdk/jdk9u
       - name: Configure && Make
-        run: cd jdk9u && bash configure --disable-warnings-as-errors && make images && cd -
+        run: cd jdk9u && bash configure --disable-warnings-as-errors && cd -
       - name: Initialize CodeQL
         run: |
           wget https://github.com/github/codeql-cli-binaries/releases/download/v2.13.3/codeql-linux64.zip && 
