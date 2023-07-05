@@ -15,7 +15,13 @@ jobs:
       security-events: write
     steps:
       - name: Install deps
-        run: apt update && apt install -y wget git gcc g++ make file unzip zip libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libcups2-dev libfreetype6-dev libasound2-dev libfontconfig1-dev openjdk-8-jdk
+        run: apt update && apt install -y wget git gcc g++ make file unzip zip libx11-dev \
+         libxext-dev libxrender-dev libxtst-dev libxt-dev libcups2-dev libfreetype6-dev libasound2-dev libfontconfig1-dev
+      - name: Configure JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '8'
       - name: Clone jdk9 src
         run: git clone --depth=1 https://github.com/openjdk/jdk9u
       - name: Configure && Make
